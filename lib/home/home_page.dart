@@ -427,302 +427,471 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
 
               // TabBar View
 
-              Align(
+              Container(
                 alignment: Alignment.centerLeft,
                 child: TabBar(
+                  labelColor:Colors.green ,
+                  // indicator: const BoxDecoration(color: Colors.transparent),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
                   controller: _tabController,
+                  tabAlignment: TabAlignment.start,
                   isScrollable: true,
-                  // labelPadding: const EdgeInsets.only(left: 0,right: 0),
-                  labelColor: Colors.white,
-                  unselectedLabelColor: Colors.white,
+                  labelPadding: const EdgeInsets.only(left: 13 , right: 10),
+                  // labelColor: Colors.black,
+                  // unselectedLabelColor: Colors.black,
                   tabs: const [
                     Tab(
-                      text: "Gainers",
+                      child: Text("Gainers",
+                        style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        ),
+                      ),
                     ),
+
                     Tab(
-                      text: 'Losers',
+                      child: Text("Losers",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
+
                   ],
                 ),
               ),
 
               SizedBox(
-                width: double.maxFinite,
-                height: 100,
+                // width: double.maxFinite,
+                height: 460,
                 child: TabBarView(
                   controller: _tabController,
                   children: [
-                    ListView.builder(
-                      itemCount: 1,
-                        itemBuilder: (_ , index) {
-                      return  Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-                        child: Column(
-                          children: [
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: const Color(0xFF333333), // Border color
-                                      ),
-                                      borderRadius: BorderRadius.circular(120),
-                                      color: const Color(0xFF121212), // Customize the color as needed
-                                    ),
-                                    child: const Text(
-                                      'Large',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
 
-                                  const SizedBox(width: 8),
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: const Color(0xFF222222), // Border color
+                    Column(
+                      children: [
+                        ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                          itemCount: 1,
+                            itemBuilder: (
+                                BuildContext context, index) {
+                          return  Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                            child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            color: const Color(0xFF333333), // Border color
+                                          ),
+                                          borderRadius: BorderRadius.circular(120),
+                                          color: const Color(0xFF121212), // Customize the color as needed
+                                        ),
+                                        child: const Text(
+                                          'Large',
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            color: Colors.white,
+                                          ),
+                                        ),
                                       ),
-                                      borderRadius: BorderRadius.circular(120),
-                                      color: const Color(0xFF121212), // Customize the color as needed
-                                    ),
-                                    child: const Text(
-                                      'Mid',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
 
-                                  const SizedBox(width: 8),
+                                      const SizedBox(width: 8),
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            color: const Color(0xFF222222), // Border color
+                                          ),
+                                          borderRadius: BorderRadius.circular(120),
+                                          color: const Color(0xFF121212), // Customize the color as needed
+                                        ),
+                                        child: const Text(
+                                          'Mid',
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
 
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: const Color(0xFF222222), // Border color
+                                      const SizedBox(width: 8),
+
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            color: const Color(0xFF222222), // Border color
+                                          ),
+                                          borderRadius: BorderRadius.circular(120),
+                                          color: const Color(0xFF121212),
+                                        ),
+                                        child: const Text(
+                                          'Small',
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            color: Colors.white,
+                                          ),
+                                        ),
                                       ),
-                                      borderRadius: BorderRadius.circular(120),
-                                      color: const Color(0xFF121212),
-                                    ),
-                                    child: const Text(
-                                      'Small',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                      ),
-                                    ),
+                                    ],
                                   ),
-                                ],
-                              ),
-                            ),
-                          ],
+                                ),
+                              ],
+                             ),
+                           );
+                         }
                         ),
-                      );
-                     }
-                    )
-                  ],
-                ),
-              ),
 
+                        ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: 1,
+                            itemBuilder: (
+                                BuildContext context, index){
+                              return  Container(
+                                color: const Color(0xFF121212),
+                                height: 400,
+                                width: MediaQuery.of(context).size.width,
+                                padding: const EdgeInsets.all(10),
+                                child: GridView.builder(
+                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                    childAspectRatio: (200 / 200),
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 10,
+                                    mainAxisSpacing: 10,
+                                  ),
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: 4,
+                                  itemBuilder: (BuildContext context, int index) {
 
-              // 3 button
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                child:  Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: const Color(0xFF333333), // Border color
-                              ),
-                              borderRadius: BorderRadius.circular(120),
-                              color: const Color(0xFF121212), // Customize the color as needed
-                            ),
-                            child: const Text(
-                              'Large',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
+                                    String imagePath = ''; // images
+                                    String itemText = ''; // itemText
+                                    String secondText = ''; // secondText
+                                    String thirdText = ''; // thirdText
 
-                          const SizedBox(width: 8),
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: const Color(0xFF222222), // Border color
-                              ),
-                              borderRadius: BorderRadius.circular(120),
-                              color: const Color(0xFF121212), // Customize the color as needed
-                            ),
-                            child: const Text(
-                              'Mid',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
+                                    switch (index) {
+                                      case 0:
+                                        imagePath = 'assets/image/wipro_logo.jpg'; // Replace with the actual path of your image
+                                        itemText = 'Wioro';
+                                        const SizedBox(width: 10);
+                                        secondText = '₹ 497.00';
+                                        thirdText = '+31.55(6.78%)';
+                                        break;
 
-                          const SizedBox(width: 8),
+                                      case 1:
+                                        imagePath = 'assets/image/oil&natural_logo.jpg';
+                                        itemText = 'oil & natural gas...';
+                                        const SizedBox(width: 10);
+                                        secondText = '₹ 229.95';
+                                        thirdText = '+6.55(2.93%)';
+                                        break;
 
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: const Color(0xFF222222), // Border color
-                              ),
-                              borderRadius: BorderRadius.circular(120),
-                              color: const Color(0xFF121212),
-                            ),
-                            child: const Text(
-                              'Small',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                                      case 2:
+                                        imagePath = 'assets/image/hcl_logo.jpg';
+                                        itemText = 'HCL Technologies';
+                                        const SizedBox(width: 10);
+                                        secondText = '₹ 1,584.35';
+                                        thirdText = '+43.55(2.83%)';
+                                        break;
+
+                                      case 3:
+                                        imagePath = 'assets/image/youtube.jpg';
+                                        itemText = 'India Renewable..';
+                                        const SizedBox(width: 10);
+                                        secondText = '₹ 27.00';
+                                        thirdText = '+9.00(1.70%)';
+
+                                        break;
+                                    }
+                                    return Container(
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFF121212),
+                                        borderRadius: BorderRadius.circular(10), // Border-radius for the Container
+                                        border: Border.all(
+                                          color: const Color(0xFF333333),
+                                        ), // Border properties
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(15.0),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            // Image.asset widget with the specified path
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(10),
+                                              child: Image.asset(
+                                                imagePath,
+                                                width: 50,
+                                                height: 50,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+
+                                            const SizedBox(height: 8),
+
+                                            // Text widget with the specified text
+                                            Text(
+                                              itemText,
+                                              style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+
+                                            const SizedBox(height: 10),
+                                            Text(
+                                              secondText,
+                                              style: const TextStyle(
+                                                fontSize: 17,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+
+                                            const SizedBox(height: 3),
+                                            Text(
+                                              thirdText,
+                                              style: const TextStyle(
+                                                fontSize: 17,
+                                                color: Colors.green,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              );
+                            }
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
 
-              //GridView.Builder (3)
-              Container(
-                color: const Color(0xFF121212),
-                height: 400,
-                width: MediaQuery.of(context).size.width,
-                padding: const EdgeInsets.all(10),
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: (200 / 200),
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                  ),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 4,
-                  itemBuilder: (BuildContext context, int index) {
+                    Column(
+                      children: [
+                        ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: 1,
+                            itemBuilder: (
+                                BuildContext context, index) {
+                              return  Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                                child: Column(
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color(0xFF333333), // Border color
+                                              ),
+                                              borderRadius: BorderRadius.circular(120),
+                                              color: const Color(0xFF121212), // Customize the color as needed
+                                            ),
+                                            child: const Text(
+                                              'Large',
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
 
-                    String imagePath = ''; // images
-                    String itemText = ''; // itemText
-                    String secondText = ''; // secondText
-                    String thirdText = ''; // thirdText
+                                          const SizedBox(width: 8),
+                                          Container(
+                                            padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color(0xFF222222), // Border color
+                                              ),
+                                              borderRadius: BorderRadius.circular(120),
+                                              color: const Color(0xFF121212), // Customize the color as needed
+                                            ),
+                                            child: const Text(
+                                              'Mid',
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
 
-                    switch (index) {
-                      case 0:
-                        imagePath = 'assets/image/wipro_logo.jpg'; // Replace with the actual path of your image
-                        itemText = 'Wioro';
-                        const SizedBox(width: 10);
-                        secondText = '₹ 497.00';
-                        thirdText = '+31.55(6.78%)';
-                        break;
+                                          const SizedBox(width: 8),
 
-                      case 1:
-                        imagePath = 'assets/image/oil&natural_logo.jpg';
-                        itemText = 'oil & natural gas...';
-                        const SizedBox(width: 10);
-                        secondText = '₹ 229.95';
-                        thirdText = '+6.55(2.93%)';
-                        break;
-
-                      case 2:
-                        imagePath = 'assets/image/hcl_logo.jpg';
-                        itemText = 'HCL Technologies';
-                        const SizedBox(width: 10);
-                        secondText = '₹ 1,584.35';
-                        thirdText = '+43.55(2.83%)';
-                        break;
-
-                      case 3:
-                        imagePath = 'assets/image/youtube.jpg';
-                        itemText = 'India Renewable..';
-                        const SizedBox(width: 10);
-                        secondText = '₹ 27.00';
-                        thirdText = '+9.00(1.70%)';
-
-                        break;
-                    }
-                    return Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF121212),
-                        borderRadius: BorderRadius.circular(10), // Border-radius for the Container
-                        border: Border.all(
-                          color: const Color(0xFF333333),
-                        ), // Border properties
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            // Image.asset widget with the specified path
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.asset(
-                                imagePath,
-                                width: 50,
-                                height: 50,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-
-                            const SizedBox(height: 8),
-
-                            // Text widget with the specified text
-                            Text(
-                              itemText,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-
-                            const SizedBox(height: 10),
-                            Text(
-                              secondText,
-                              style: const TextStyle(
-                                fontSize: 17,
-                                color: Colors.white,
-                              ),
-                            ),
-
-                            const SizedBox(height: 3),
-                            Text(
-                              thirdText,
-                              style: const TextStyle(
-                                fontSize: 17,
-                                color: Colors.green,
-                              ),
-                            ),
-                          ],
+                                          Container(
+                                            padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color(0xFF222222), // Border color
+                                              ),
+                                              borderRadius: BorderRadius.circular(120),
+                                              color: const Color(0xFF121212),
+                                            ),
+                                            child: const Text(
+                                              'Small',
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }
                         ),
-                      ),
-                    );
-                  },
+
+                        ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: 1,
+                            itemBuilder: (
+                                BuildContext context, index){
+                              return  Container(
+                                color: const Color(0xFF121212),
+                                height: 400,
+                                width: MediaQuery.of(context).size.width,
+                                padding: const EdgeInsets.all(10),
+                                child: GridView.builder(
+                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                    childAspectRatio: (200 / 200),
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 10,
+                                    mainAxisSpacing: 10,
+                                  ),
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: 4,
+                                  itemBuilder: (BuildContext context, int index) {
+
+                                    String imagePath = ''; // images
+                                    String itemText = ''; // itemText
+                                    String secondText = ''; // secondText
+                                    String thirdText = ''; // thirdText
+
+                                    switch (index) {
+                                      case 0:
+                                        imagePath = 'assets/image/wipro_logo.jpg'; // Replace with the actual path of your image
+                                        itemText = 'Wioro';
+                                        const SizedBox(width: 10);
+                                        secondText = '₹ 497.00';
+                                        thirdText = '+31.55(6.78%)';
+                                        break;
+
+                                      case 1:
+                                        imagePath = 'assets/image/oil&natural_logo.jpg';
+                                        itemText = 'oil & natural gas...';
+                                        const SizedBox(width: 10);
+                                        secondText = '₹ 229.95';
+                                        thirdText = '+6.55(2.93%)';
+                                        break;
+
+                                      case 2:
+                                        imagePath = 'assets/image/hcl_logo.jpg';
+                                        itemText = 'HCL Technologies';
+                                        const SizedBox(width: 10);
+                                        secondText = '₹ 1,584.35';
+                                        thirdText = '+43.55(2.83%)';
+                                        break;
+
+                                      case 3:
+                                        imagePath = 'assets/image/youtube.jpg';
+                                        itemText = 'India Renewable..';
+                                        const SizedBox(width: 10);
+                                        secondText = '₹ 27.00';
+                                        thirdText = '+9.00(1.70%)';
+
+                                        break;
+                                    }
+                                    return Container(
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFF121212),
+                                        borderRadius: BorderRadius.circular(10), // Border-radius for the Container
+                                        border: Border.all(
+                                          color: const Color(0xFF333333),
+                                        ), // Border properties
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(15.0),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            // Image.asset widget with the specified path
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(10),
+                                              child: Image.asset(
+                                                imagePath,
+                                                width: 50,
+                                                height: 50,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+
+                                            const SizedBox(height: 8),
+
+                                            // Text widget with the specified text
+                                            Text(
+                                              itemText,
+                                              style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+
+                                            const SizedBox(height: 10),
+                                            Text(
+                                              secondText,
+                                              style: const TextStyle(
+                                                fontSize: 17,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+
+                                            const SizedBox(height: 3),
+                                            Text(
+                                              thirdText,
+                                              style: const TextStyle(
+                                                fontSize: 17,
+                                                color: Colors.green,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              );
+                            }
+                        ),
+                      ],
+                    ),
+
+                  ],
                 ),
               ),
 
