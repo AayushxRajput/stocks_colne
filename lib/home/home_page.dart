@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stocks_colne/home/see_more.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -7,11 +8,24 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+
+
+  final List<String> productToolTextList = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+  final List<String> productToolImageList = [
+    'assets/image/youtube.jpg', 'assets/image/youtube.jpg',
+    'assets/image/youtube.jpg', 'assets/image/youtube.jpg'
+  ];
+
+
+
+
   @override
   Widget build(BuildContext context) {
 
    TabController  _tabController = TabController(length: 2, vsync: this);
+
+
     return Scaffold(
       backgroundColor: const Color(0xFF121212),
 
@@ -268,7 +282,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                 padding: const EdgeInsets.all(10),
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: (200 / 200),
+                    childAspectRatio: (190 / 190),
                     crossAxisCount: 2,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
@@ -312,61 +326,66 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                         break;
                     }
 
-                    return Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF121212),
-                        borderRadius: BorderRadius.circular(10), // Border-radius for the Container
-                        border: Border.all(
-                          color: const Color(0xFF333333),
-                        ), // Border properties
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            // Image.asset widget with the specified path
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.asset(
-                                imagePath,
-                                width: 50,
-                                height: 50,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
+                    return InkWell(
+                      onTap: () {
 
-                            const SizedBox(height: 8),
-
-                            // Text widget with the specified text
-                            Text(
-                              itemText,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF121212),
+                          borderRadius: BorderRadius.circular(10), // Border-radius for the Container
+                          border: Border.all(
+                            color: const Color(0xFF333333),
+                          ), // Border properties
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              // Image.asset widget with the specified path
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.asset(
+                                  imagePath,
+                                  width: 50,
+                                  height: 50,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                            ),
-
-                            const SizedBox(height: 10),
-                            Text(
-                              secondText,
-                              style: const TextStyle(
-                                fontSize: 17,
-                                color: Colors.white,
+                      
+                              const SizedBox(height: 8),
+                      
+                              // Text widget with the specified text
+                              Text(
+                                itemText,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
                               ),
-                            ),
-
-                            const SizedBox(height: 3),
-                            Text(
-                              thirdText,
-                              style: const TextStyle(
-                                fontSize: 17,
-                                color: Colors.green,
+                      
+                              const SizedBox(height: 10),
+                              Text(
+                                secondText,
+                                style: const TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.white,
+                                ),
                               ),
-                            ),
-                          ],
+                      
+                              const SizedBox(height: 3),
+                              Text(
+                                thirdText,
+                                style: const TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.green,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     );
@@ -375,8 +394,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
               ),
 
               //'Product & Tools'
+              const SizedBox(height: 15,),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 child: Container(
                   alignment: Alignment.centerLeft,
                   child: const Text(
@@ -392,41 +412,52 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
 
               const SizedBox(height: 10,),
               SizedBox(
-                height: 90,
+                height: 130,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 4,
+                  itemCount: productToolTextList.length,
                   itemBuilder: (BuildContext context, int index) {
-                    String imagePath = 'assets/image/youtube.jpg';
 
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10), // Adjust the radius as needed
-                          border: Border.all( color: const Color(0xFF333333),),
-                          color: const Color(0xFF1b1a1a),
-                        ),
-                        padding: const EdgeInsets.symmetric(horizontal: 18),
-                        // margin: const EdgeInsets.only(right: 10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              imagePath,
-                              fit: BoxFit.cover,
-                              height: 50,
+                    return Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all( color: const Color(0xFF333333),),
+                              color: const Color(0xFF1b1a1a),
                             ),
-                          ],
+                            padding: const EdgeInsets.symmetric(horizontal: 18,vertical: 15),
+                            // margin: const EdgeInsets.only(right: 10),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  productToolImageList[index],
+                                  fit: BoxFit.cover,
+                                  height: 50,
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
+
+                        const SizedBox(height: 10,),
+                        Text(
+                          productToolTextList[index],
+                          style: const TextStyle(
+                              fontSize: 20,
+                              color: Colors.white
+                          ),
+                        )
+                      ],
                     );
                   },
                 ),
               ),
 
               // TabBar View
-
               Container(
                 alignment: Alignment.centerLeft,
                 child: TabBar(
@@ -439,6 +470,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                   labelPadding: const EdgeInsets.only(left: 13 , right: 10),
                   // labelColor: Colors.black,
                   // unselectedLabelColor: Colors.black,
+                  dividerColor: Colors.transparent,
                   tabs: const [
                     Tab(
                       child: Text("Gainers",
@@ -470,13 +502,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                 child: TabBarView(
                   controller: _tabController,
                   children: [
-
                     Column(
                       children: [
                         ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
-                          itemCount: 1,
+                            itemCount: 1,
                             itemBuilder: (
                                 BuildContext context, index) {
                           return  Padding(
@@ -676,6 +707,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                                   },
                                 ),
                               );
+
                             }
                         ),
                       ],
@@ -765,129 +797,111 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                         ),
 
                         ListView.builder(
-                            physics: const NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: 1,
-                            itemBuilder: (
-                                BuildContext context, index){
-                              return  Container(
-                                color: const Color(0xFF121212),
-                                height: 400,
-                                width: MediaQuery.of(context).size.width,
-                                padding: const EdgeInsets.all(10),
-                                child: GridView.builder(
-                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                                    childAspectRatio: (200 / 200),
-                                    crossAxisCount: 2,
-                                    crossAxisSpacing: 10,
-                                    mainAxisSpacing: 10,
-                                  ),
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount: 4,
-                                  itemBuilder: (BuildContext context, int index) {
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: 1,
+          itemBuilder: (BuildContext context, index) {
+            return GestureDetector(
+              onTap: () {
+                // Handle click action for the ListView item
+                print('ListView item clicked!');
+                // You can navigate to a new page or perform any other action here
+              },
+              child: Container(
+                color: const Color(0xFF121212),
+                height: 400,
+                width: MediaQuery.of(context).size.width,
+                padding: const EdgeInsets.all(10),
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: (200 / 200),
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                  ),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 4,
+                  itemBuilder: (BuildContext context, int index) {
+                    String imagePath = ''; // images
+                    String itemText = ''; // itemText
+                    String secondText = ''; // secondText
+                    String thirdText = ''; // thirdText
 
-                                    String imagePath = ''; // images
-                                    String itemText = ''; // itemText
-                                    String secondText = ''; // secondText
-                                    String thirdText = ''; // thirdText
+                    switch (index) {
+                    // Your switch case logic here
 
-                                    switch (index) {
-                                      case 0:
-                                        imagePath = 'assets/image/wipro_logo.jpg'; // Replace with the actual path of your image
-                                        itemText = 'Wioro';
-                                        const SizedBox(width: 10);
-                                        secondText = '₹ 497.00';
-                                        thirdText = '+31.55(6.78%)';
-                                        break;
+                    }
 
-                                      case 1:
-                                        imagePath = 'assets/image/oil&natural_logo.jpg';
-                                        itemText = 'oil & natural gas...';
-                                        const SizedBox(width: 10);
-                                        secondText = '₹ 229.95';
-                                        thirdText = '+6.55(2.93%)';
-                                        break;
+                    return GestureDetector(
+                      onTap: () {
 
-                                      case 2:
-                                        imagePath = 'assets/image/hcl_logo.jpg';
-                                        itemText = 'HCL Technologies';
-                                        const SizedBox(width: 10);
-                                        secondText = '₹ 1,584.35';
-                                        thirdText = '+43.55(2.83%)';
-                                        break;
+                        print('Container $index clicked!');
 
-                                      case 3:
-                                        imagePath = 'assets/image/youtube.jpg';
-                                        itemText = 'India Renewable..';
-                                        const SizedBox(width: 10);
-                                        secondText = '₹ 27.00';
-                                        thirdText = '+9.00(1.70%)';
-
-                                        break;
-                                    }
-                                    return Container(
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xFF121212),
-                                        borderRadius: BorderRadius.circular(10), // Border-radius for the Container
-                                        border: Border.all(
-                                          color: const Color(0xFF333333),
-                                        ), // Border properties
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(15.0),
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            // Image.asset widget with the specified path
-                                            ClipRRect(
-                                              borderRadius: BorderRadius.circular(10),
-                                              child: Image.asset(
-                                                imagePath,
-                                                width: 50,
-                                                height: 50,
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-
-                                            const SizedBox(height: 8),
-
-                                            // Text widget with the specified text
-                                            Text(
-                                              itemText,
-                                              style: const TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-
-                                            const SizedBox(height: 10),
-                                            Text(
-                                              secondText,
-                                              style: const TextStyle(
-                                                fontSize: 17,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-
-                                            const SizedBox(height: 3),
-                                            Text(
-                                              thirdText,
-                                              style: const TextStyle(
-                                                fontSize: 17,
-                                                color: Colors.green,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              );
-                            }
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const SeeMore()),
+                        );
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF121212),
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: const Color(0xFF333333),
+                          ),
                         ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.asset(
+                                  imagePath,
+                                  width: 50,
+                                  height: 50,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                itemText,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                secondText,
+                                style: const TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 3),
+                              Text(
+                                thirdText,
+                                style: const TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.green,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            );
+          },
+        ),
+
                       ],
                     ),
 
@@ -1376,14 +1390,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
               ),
 
               //Last me Text likha he
-              const SizedBox(
-                width: 250,
-                height: 70,
-                child:  Center(
+              Container(
+                width: MediaQuery.of(context).size.width,
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 60),
+                child: const Center(
                   child: Column(
                     children: [
                       Text(
                         'Nextbillion Technology Pvt.Ltd SEBI-Stock Brock - INZ000301838 DP-IN-DP-417-2019',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 15,
                           color: Colors.white,
