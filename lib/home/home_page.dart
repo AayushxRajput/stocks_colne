@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stocks_colne/home/see_more.dart';
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -11,12 +9,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
 
-  final List<String> productToolTextList = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
-  final List<String> productToolImageList = [
-    'assets/image/youtube.jpg', 'assets/image/youtube.jpg',
-    'assets/image/youtube.jpg', 'assets/image/youtube.jpg'
+  final List<String> productToolTextList = [
+    'F&O', 'Events', 'IPO', 'All Stocks'
   ];
 
+  final List<String> productToolImageList = [
+    'assets/image/speedometer.webp', 'assets/image/events.png',
+    'assets/image/ipo.jpeg', 'assets/image/all_stocks.png'
+  ];
 
 
 
@@ -79,6 +79,27 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         ],
       ),
 
+      // bottomNavigationBar
+      // bottomNavigationBar: BottomNavigationBar(
+      //     backgroundColor: Colors.white10,
+      //   items: const <BottomNavigationBarItem>[
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.account_balance_wallet),
+      //       label: 'Stocks',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.monetization_on),
+      //       label: 'Mutual Funds',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.payment),
+      //       label: 'Pay',
+      //     ),
+      //   ],
+      //   selectedItemColor: const Color(0xFF9aa5f6),
+      //   unselectedItemColor: Colors.grey,
+      // ),
+
       body: Expanded(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -87,7 +108,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
 
-              // 2 box top
+              // Top 2 box top
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10 ,vertical: 10),
                 child: SingleChildScrollView(
@@ -258,7 +279,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
               ),
 
-              //Most Bought on Grow
+              // Text Most Bought on Grow
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                 child: Container(
@@ -274,7 +295,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
               ),
 
-              //GridView.Builder (1)
+              // 4 Box GridView.Builder (1)
               Container(
                 color: const Color(0xFF121212),
                 height: 400,
@@ -307,7 +328,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       case 1:
                         imagePath = 'assets/image/suzlon2_logo.jpg';
                         itemText = 'Suzlon Energy';
-                        secondText = '₹ 44.10';
+                        secondText = '₹ 49.35';
                         thirdText = '-0.80(1.78%)';
                         break;
 
@@ -410,6 +431,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
               ),
 
+              // Row me Gridview(2)
               const SizedBox(height: 10,),
               SizedBox(
                 height: 130,
@@ -447,7 +469,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         Text(
                           productToolTextList[index],
                           style: const TextStyle(
-                              fontSize: 20,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
                               color: Colors.white
                           ),
                         )
@@ -475,9 +498,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     Tab(
                       child: Text("Gainers",
                         style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -510,79 +533,79 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             itemCount: 1,
                             itemBuilder: (
                                 BuildContext context, index) {
-                          return  Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-                            child: Column(
-                              children: [
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                            color: const Color(0xFF333333), // Border color
+                              return  Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                                child: Column(
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color(0xFF333333), // Border color
+                                              ),
+                                              borderRadius: BorderRadius.circular(120),
+                                              color: const Color(0xFF121212), // Customize the color as needed
+                                            ),
+                                            child: const Text(
+                                              'Large',
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                color: Colors.white,
+                                              ),
+                                            ),
                                           ),
-                                          borderRadius: BorderRadius.circular(120),
-                                          color: const Color(0xFF121212), // Customize the color as needed
-                                        ),
-                                        child: const Text(
-                                          'Large',
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
 
-                                      const SizedBox(width: 8),
-                                      Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                            color: const Color(0xFF222222), // Border color
+                                          const SizedBox(width: 8),
+                                          Container(
+                                            padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color(0xFF222222), // Border color
+                                              ),
+                                              borderRadius: BorderRadius.circular(120),
+                                              color: const Color(0xFF121212), // Customize the color as needed
+                                            ),
+                                            child: const Text(
+                                              'Mid',
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                color: Colors.white,
+                                              ),
+                                            ),
                                           ),
-                                          borderRadius: BorderRadius.circular(120),
-                                          color: const Color(0xFF121212), // Customize the color as needed
-                                        ),
-                                        child: const Text(
-                                          'Mid',
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
 
-                                      const SizedBox(width: 8),
+                                          const SizedBox(width: 8),
 
-                                      Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                            color: const Color(0xFF222222), // Border color
+                                          Container(
+                                            padding: const EdgeInsets.symmetric(horizontal: 20 ,vertical: 5),
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color(0xFF222222), // Border color
+                                              ),
+                                              borderRadius: BorderRadius.circular(120),
+                                              color: const Color(0xFF121212),
+                                            ),
+                                            child: const Text(
+                                              'Small',
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                color: Colors.white,
+                                              ),
+                                            ),
                                           ),
-                                          borderRadius: BorderRadius.circular(120),
-                                          color: const Color(0xFF121212),
-                                        ),
-                                        child: const Text(
-                                          'Small',
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            color: Colors.white,
-                                          ),
-                                        ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                             ),
-                           );
-                         }
+                              );
+                            }
                         ),
 
                         ListView.builder(
@@ -707,7 +730,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   },
                                 ),
                               );
-
                             }
                         ),
                       ],
@@ -797,111 +819,129 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         ),
 
                         ListView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          itemCount: 1,
-          itemBuilder: (BuildContext context, index) {
-            return GestureDetector(
-              onTap: () {
-                // Handle click action for the ListView item
-                print('ListView item clicked!');
-                // You can navigate to a new page or perform any other action here
-              },
-              child: Container(
-                color: const Color(0xFF121212),
-                height: 400,
-                width: MediaQuery.of(context).size.width,
-                padding: const EdgeInsets.all(10),
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: (200 / 200),
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                  ),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 4,
-                  itemBuilder: (BuildContext context, int index) {
-                    String imagePath = ''; // images
-                    String itemText = ''; // itemText
-                    String secondText = ''; // secondText
-                    String thirdText = ''; // thirdText
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: 1,
+                            itemBuilder: (
+                                BuildContext context, index){
+                              return  Container(
+                                color: const Color(0xFF121212),
+                                height: 400,
+                                width: MediaQuery.of(context).size.width,
+                                padding: const EdgeInsets.all(10),
+                                child: GridView.builder(
+                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                    childAspectRatio: (200 / 200),
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 10,
+                                    mainAxisSpacing: 10,
+                                  ),
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: 4,
+                                  itemBuilder: (BuildContext context, int index) {
 
-                    switch (index) {
-                    // Your switch case logic here
+                                    String imagePath = ''; // images
+                                    String itemText = ''; // itemText
+                                    String secondText = ''; // secondText
+                                    String thirdText = ''; // thirdText
 
-                    }
+                                    switch (index) {
+                                      case 0:
+                                        imagePath = 'assets/image/wipro_logo.jpg'; // Replace with the actual path of your image
+                                        itemText = 'Wioro';
+                                        const SizedBox(width: 10);
+                                        secondText = '₹ 497.00';
+                                        thirdText = '+31.55(6.78%)';
+                                        break;
 
-                    return GestureDetector(
-                      onTap: () {
+                                      case 1:
+                                        imagePath = 'assets/image/oil&natural_logo.jpg';
+                                        itemText = 'oil & natural gas...';
+                                        const SizedBox(width: 10);
+                                        secondText = '₹ 229.95';
+                                        thirdText = '+6.55(2.93%)';
+                                        break;
 
-                        print('Container $index clicked!');
+                                      case 2:
+                                        imagePath = 'assets/image/hcl_logo.jpg';
+                                        itemText = 'HCL Technologies';
+                                        const SizedBox(width: 10);
+                                        secondText = '₹ 1,584.35';
+                                        thirdText = '+43.55(2.83%)';
+                                        break;
 
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const SeeMore()),
-                        );
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF121212),
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: const Color(0xFF333333),
-                          ),
+                                      case 3:
+                                        imagePath = 'assets/image/youtube.jpg';
+                                        itemText = 'India Renewable..';
+                                        const SizedBox(width: 10);
+                                        secondText = '₹ 27.00';
+                                        thirdText = '+9.00(1.70%)';
+
+                                        break;
+                                    }
+                                    return Container(
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFF121212),
+                                        borderRadius: BorderRadius.circular(10), // Border-radius for the Container
+                                        border: Border.all(
+                                          color: const Color(0xFF333333),
+                                        ), // Border properties
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(15.0),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            // Image.asset widget with the specified path
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(10),
+                                              child: Image.asset(
+                                                imagePath,
+                                                width: 50,
+                                                height: 50,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+
+                                            const SizedBox(height: 8),
+
+                                            // Text widget with the specified text
+                                            Text(
+                                              itemText,
+                                              style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+
+                                            const SizedBox(height: 10),
+                                            Text(
+                                              secondText,
+                                              style: const TextStyle(
+                                                fontSize: 17,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+
+                                            const SizedBox(height: 3),
+                                            Text(
+                                              thirdText,
+                                              style: const TextStyle(
+                                                fontSize: 17,
+                                                color: Colors.green,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              );
+                            }
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.asset(
-                                  imagePath,
-                                  width: 50,
-                                  height: 50,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                itemText,
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              Text(
-                                secondText,
-                                style: const TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              const SizedBox(height: 3),
-                              Text(
-                                thirdText,
-                                style: const TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.green,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            );
-          },
-        ),
-
                       ],
                     ),
 
@@ -909,7 +949,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
               ),
 
-              //Top Intra day
+              // Text Top Intra day
               const SizedBox(height: 30,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -1392,7 +1432,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               //Last me Text likha he
               Container(
                 width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 60),
+                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 60),
                 child: const Center(
                   child: Column(
                     children: [
@@ -1408,6 +1448,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                 ),
               ),
+
+
 
             ],
           ),
