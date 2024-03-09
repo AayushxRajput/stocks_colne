@@ -29,76 +29,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return Scaffold(
       backgroundColor: const Color(0xFF121212),
 
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF121212),
-        title: const Column(
-          children: [
-            Text(
-              'Stocks',
-              style: TextStyle(
-                fontSize: 23,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-          ],
-        ),
-        leadingWidth: 45,
-        leading: const CircleAvatar(
-          radius: 15,
-          backgroundImage: AssetImage('assets/image/grow_logo.png'),
-        ),
-        actions: [
-          Row(
-            children: [
-              IconButton(
-                icon: const Icon(Icons.search, color: Colors.white),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: const Icon(Icons.qr_code, color: Colors.white),
-                onPressed: () {},
-              ),
-              const SizedBox(width: 8),
-              InkWell(
-                onTap: () {},
-                child: ClipOval(
-                  child: Material(
-                    child: Ink.image(
-                      image: const AssetImage('assets/image/profile_logo.jpg'),
-                      fit: BoxFit.cover,
-                      width: 30,
-                      height: 30,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 8)
-            ],
-          ),
-        ],
-      ),
-
-      // bottomNavigationBar
-      // bottomNavigationBar: BottomNavigationBar(
-      //     backgroundColor: Colors.white10,
-      //   items: const <BottomNavigationBarItem>[
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.account_balance_wallet),
-      //       label: 'Stocks',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.monetization_on),
-      //       label: 'Mutual Funds',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.payment),
-      //       label: 'Pay',
-      //     ),
-      //   ],
-      //   selectedItemColor: const Color(0xFF9aa5f6),
-      //   unselectedItemColor: Colors.grey,
-      // ),
 
       body: Expanded(
         child: SingleChildScrollView(
@@ -303,7 +233,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 padding: const EdgeInsets.all(10),
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: (190 / 190),
                     crossAxisCount: 2,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
@@ -311,6 +240,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   scrollDirection: Axis.horizontal,
                   itemCount: 4,
                   itemBuilder: (BuildContext context, int index) {
+
 
                     String imagePath = ''; // images
                     String itemText = ''; // itemText
