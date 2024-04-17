@@ -8,6 +8,17 @@ class MutualFunds extends StatefulWidget {
 }
 
 class _MutualFundsState extends State<MutualFunds> {
+
+  final List<String> collectionTextList =['High return','SIP with ₹100', 'Tax Saving',
+    'Large Cap','Mid Cap','Small Cap'];
+
+  final List<String> productToolImageList = [
+    'assets/image/profile_logo.jpg', 'assets/image/profile_logo.jpg',
+    'assets/image/profile_logo.jpg', 'assets/image/profile_logo.jpg',
+    'assets/image/profile_logo.jpg','assets/image/profile_logo.jpg'
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -168,11 +179,11 @@ class _MutualFundsState extends State<MutualFunds> {
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: SizedBox(
-                      height: 200,
+                      height: 160,
                       width: MediaQuery.of(context).size.width,
                       child: GridView.builder(
                         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                          childAspectRatio: (100/160),
+                          childAspectRatio: (100/190),
                           maxCrossAxisExtent: 200, // Maximum width of each item
                           crossAxisSpacing: 10,
                           mainAxisSpacing: 20,
@@ -183,37 +194,32 @@ class _MutualFundsState extends State<MutualFunds> {
                           String imagePath = '';
                           String itemText = '';
                           String secondText = '';
-                          String thirdText = '';
-                          String fourText ='';
+
 
                           switch (index) {
                             case 0:
                               imagePath = 'assets/image/infibeam_avenues_logo.png';
                               itemText = 'Parag Parikh Flexi Cap Fund Direct Growth';
                               secondText = 'Equity Flexi Cap •5 ⭐';
-                              thirdText = '';
-                              fourText = '';
+
                               break;
                             case 1:
                               imagePath = 'assets/image/suzlon2_logo.jpg';
                               itemText = 'Quant Mid Cap Fund Direct Growth';
                               secondText = 'Equity Mid Cap •5 ⭐';
-                              thirdText = '';
-                              fourText = '';
+
                               break;
                             case 2:
                               imagePath = 'assets/image/trident_logo.jpeg';
                               itemText = 'Axis Small Cap Fund Direct Growth';
                               secondText = 'Equity Small Cap •5 ⭐';
-                              thirdText = '';
-                              fourText = '';
+
                               break;
                             case 3:
                               imagePath = 'assets/image/youtube.jpg';
                               itemText = 'Nippon India Large Cap Fund Direct Growth';
                               secondText = 'Equity Large Cap •5 ⭐';
-                              thirdText = '';
-                              fourText = '';
+
                               break;
                           }
 
@@ -258,7 +264,7 @@ class _MutualFundsState extends State<MutualFunds> {
                                           overflow: TextOverflow.clip,
                                           itemText,
                                           style: const TextStyle(
-                                            fontSize: 16,
+                                            fontSize: 15,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white,
                                           ),
@@ -276,29 +282,6 @@ class _MutualFundsState extends State<MutualFunds> {
                                     ),
 
 
-                                    Row(
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            thirdText,
-                                            style: const TextStyle(
-                                              fontSize: 17,
-                                              color: Colors.white,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-
-                                    Text(
-                                      fourText,
-                                      style: const TextStyle(
-                                        fontSize: 17,
-                                        color: Colors.green,
-                                      ),
-                                    ),
-
-
                                   ],
                                 ),
                               ),
@@ -308,6 +291,65 @@ class _MutualFundsState extends State<MutualFunds> {
                       ),
                     ),
                   ),
+                ),
+
+                //Collections
+                const SizedBox(height: 15),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: const Text(
+                      'Collections',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 15),
+
+                SizedBox(
+                  height: 200,
+                  width: MediaQuery.of(context).size.width,
+                  child: GridView.builder(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        mainAxisExtent: 200,
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 30,
+                        crossAxisSpacing: 30,
+                      ),
+
+                      itemCount: 6,
+                      itemBuilder: (BuildContext context , int index){
+
+                        return  Column(
+                          children: [
+
+                            Container(
+                              height: 200,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                image: const DecorationImage(
+                                  image: AssetImage('assets/image/profile_logo.jpg'),
+                                ),
+                              ),
+                            ),
+
+                            const Text(
+                              'Collections',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        );
+                      }),
                 ),
 
 
