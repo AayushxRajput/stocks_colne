@@ -1,16 +1,8 @@
 # stocks_colne
 
-A new Flutter project.
+# Out_Put# Output
+<img src="https://github.com/user-attachments/assets/c17a9e43-c320-4a90-8ef0-a63c10710c9b" alt="9585c544-8de5-467d-92dc-71acb0bb8bfe" width="300" height="500" style="margin-bottom: 20px;">
 
-## Getting Started
+<img src="https://github.com/user-attachments/assets/07cde354-db07-4af2-b758-adaa9ef0871f" alt="8c303a54-c5c9-4266-9154-76724db8855c" width="300" height="500" style="margin-bottom: 20px;">
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://github.com/user-attachments/assets/461ebba6-9ea5-4d11-8406-7fb233b148d5" alt="f96904a3-f828-4d4f-9978-c0d000583d01" width="300" height="500">
